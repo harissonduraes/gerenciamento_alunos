@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron">
+    
+    <hr class="my-4">
+    <div class="container">
+      <h1>Alunos</h1>
+      <!-- O código de tabela abaixo foiretiradode https://getbootstrap.com.br/docs/4.1/content/tables/-->
+      <table class="table table-light">
+          <thead>
+              <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Data de Nascimento</th>
+              <th scope="col">Data de Ingresso</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for aluno in alunos %}
+              <tr>
+              
+              <td ><a href="#" data-toggle="modal" data-target="#modal{{aluno.id}}"> {{ aluno.nome }} </a></td>
+              <!-- Usaremos o recurso modal do bootstrap para exibir a
+              imagem do produto. O componente modal se encontra em:
+              https://getbootstrap.com.br/docs/4.1/components/modal/-->
+              
+              <td scope="row"> {{ aluno.curso }} </td>
+              <td scope="row">{{ aluno.data_nascimento }}</td>
+              <td scope="row">{{ aluno.data_ingresso }}</td>
+
+              <!--<td>
+                  <img src="{{ aluno.foto_perfil }}" class="img-thumbnail" width="128px">
+              </td>-->
+              </tr>
+              <div class="modal fade" id="modal{{aluno.id}}" tabindex="-1" role="dialog" aria-labelledby="aluno-modal-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="aluno-modal-label">Título do Modal</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-center align-items-center">
+                        <img src="{{ aluno.foto_perfil }}" class="img-fluid" width="128px">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--<div class="modal fade" id="0modal{{aluno.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-
+              hidden="true">
+
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+                  <div class="modal-body">
+                  <img src="{{ bsi.imagem.url }}" class="img-fluid" alt="{{ aluno.nome }}">
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                  </div>
+                </div>
+              </div>-->
+              
+              {% endfor %}
+              </tbody>
+          </table>
+          
+      </div>
+    
+    
+    <hr class="my-4">
+    
+    
+  </div>
+
+{% endblock %}
+
+	 
+	 
